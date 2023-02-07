@@ -1,6 +1,3 @@
-<script>
-export default {};
-</script>
 <template>
   <NuxtLayout name="default">
     <div class="flex justify-center h-auto m-8">

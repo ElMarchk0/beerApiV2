@@ -1,6 +1,6 @@
 interface Beer {
   name: string;
-  beerId: number;
+  id: number;
   description: string;
   brand: string;
   ABV: number;
