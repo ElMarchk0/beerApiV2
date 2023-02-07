@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <NuxtLayout name="default">
     <div class="flex flex-col justify-center h-auto m-8">
