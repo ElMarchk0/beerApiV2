@@ -1,42 +1,49 @@
-# Nuxt 3 Minimal Starter
+# The Great Victoria Craft Beer API V2
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+[The Great Victoria Craft Beer API](#) was origionally built in 2020 and was revised in 2023. It's a simple webapp that allows the user to search for and review beer that has been brewed in Victoria, Canada, by name, brewery or or type of beer. 
+If you are affiliated with any breweries featured or wish to contribute to the project itself don't be afraid to reach out.
 
 ## Setup
+
+If you wish to to have the list of beer availible locally you need to install json-server:
+
+```bash
+npm install -g json-server
+```
+
+Run json-server on port 3001:
+
+```bash 
+yarn serve
+```
 
 Make sure to install the dependencies:
 
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
+yarn 
 ```
 
-## Development Server
+##
+
+#### Development Server
 
 Start the development server on http://localhost:3000
 
 ```bash
-npm run dev
+yarn dev
 ```
 
-## Production
+#### Production
 
 Build the application for production:
 
 ```bash
-npm run build
+yarn build
 ```
 
 Locally preview production build:
 
 ```bash
-npm run preview
+yarn preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
