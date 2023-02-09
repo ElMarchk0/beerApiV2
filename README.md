@@ -1,6 +1,6 @@
 # The Great Victoria Craft Beer API V2
 
-[The Great Victoria Craft Beer API](#) was origionally built in 2020 and was revised in 2023. It's a simple webapp that allows the user to search for and review beer that has been brewed in Victoria, Canada, by name, brewery or or type of beer. 
+[The Great Victoria Craft Beer API](#) was origionally built in 2020 and was revised in 2023. It's a simple webapp that allows the user to search for and review beer that has been brewed in Victoria, Canada, by name, brewery or or type of beer.
 If you are affiliated with any breweries featured or wish to contribute to the project itself don't be afraid to reach out.
 
 ## Setup
@@ -13,17 +13,15 @@ npm install -g json-server
 
 Run json-server on port 3001:
 
-```bash 
+```bash
 yarn serve
 ```
 
 Make sure to install the dependencies:
 
 ```bash
-yarn 
+yarn
 ```
-
-##
 
 #### Development Server
 
@@ -46,4 +44,3 @@ Locally preview production build:
 ```bash
 yarn preview
 ```
-
