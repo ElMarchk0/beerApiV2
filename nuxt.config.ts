@@ -8,4 +8,10 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  runtimeConfig: {
+    mongoUrl: process.env.DATABASE_URL,
+  },
+  nitro: {
+    plugins: ["~/server/index.ts"],
+  },
 });
