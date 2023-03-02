@@ -8,4 +8,11 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  runtimeConfig: {
+    public: {
+      beerApiSearchUrl:
+        process.env.SEARCH_URL || "http://localhost:3001/beers/search",
+      beerUrl: process.env.BEER_URL || "http://localhost:3001/beers/beer",
+    },
+  },
 });

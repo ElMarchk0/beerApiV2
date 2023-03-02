@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 import { Beer } from "../interfaces";
-import { beerUrl, beerApiSearchUrl } from "../utils";
 
 export const beerStore = defineStore("beer", {
   state: () => ({
@@ -18,16 +17,20 @@ export const beerStore = defineStore("beer", {
   },
   actions: {
     async fetchBeers(query: string) {
+      const runtimeConfig = useRuntimeConfig();
       try {
-        const { data } = await axios.get(`${beerApiSearchUrl}/${query}`);
+        const { data } = await axios.get(
+          `${runtimeConfig.beerApiSearchUrl}/${query}`
+        );
         this.beerList = data;
       } catch (e) {
         console.error(e);
       }
     },
     async fetchOneBeer(beerId: string) {
+      const runtimeConfig = useRuntimeConfig();
       try {
-        const { data } = await axios.get(`${beerUrl}/${beerId}`);
+        const { data } = await axios.get(`${runtimeConfig.beerUrl}/${beerId}`);
         this.beer = data[0];
       } catch (e) {
         console.error(e);
