@@ -17,9 +17,14 @@ export const beerStore = defineStore("beer", {
     },
   },
   actions: {
-    async fetchBeers(query: string) {
+    async searchBeers(searchQuery: string) {
       try {
-        const { data } = await axios.get(`${beerApiSearchUrl}/${query}`);
+        const data = await $fetch<Beer[]>(`/api/beers/${searchQuery}`, {
+          method: "GET",
+          params: {
+            query: searchQuery,
+          },
+        });
         this.beerList = data;
       } catch (e) {
         console.error(e);
@@ -27,8 +32,8 @@ export const beerStore = defineStore("beer", {
     },
     async fetchOneBeer(beerId: string) {
       try {
-        const { data } = await axios.get(`${beerUrl}/${beerId}`);
-        this.beer = data[0];
+        const data = await $fetch<Beer>(`/api/beers/${beerId}`);
+        this.beer = data;
       } catch (e) {
         console.error(e);
       }

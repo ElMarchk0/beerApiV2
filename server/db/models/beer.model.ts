@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { IBeer } from "../interfaces/beer.interface";
+import { IBeer } from "../../interfaces/beer.interface";
 
 const beerSchema = new mongoose.Schema({
   name: "string",

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const config = useRuntimeConfig;
+const config = useRuntimeConfig();
 
 export default async () => {
   try {
