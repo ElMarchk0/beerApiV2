@@ -19,7 +19,7 @@ export const beerStore = defineStore("beer", {
   actions: {
     async searchBeers(searchQuery: string) {
       try {
-        const data = await $fetch<Beer[]>(`/api/beers/${searchQuery}`, {
+        const data = await $fetch<Beer[]>(`/api/beers/query/${searchQuery}`, {
           method: "GET",
           params: {
             query: searchQuery,
@@ -32,7 +32,7 @@ export const beerStore = defineStore("beer", {
     },
     async fetchOneBeer(beerId: string) {
       try {
-        const data = await $fetch<Beer>(`/api/beers/${beerId}`);
+        const data = await $fetch<Beer>(`/api/beers/id/${beerId}`);
         this.beer = data;
       } catch (e) {
         console.error(e);

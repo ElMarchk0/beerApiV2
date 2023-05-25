@@ -1,4 +1,4 @@
-import Beer from "../../db/models/beer.model";
+import Beer from "../../../db/models/beer.model";
 
 export default defineEventHandler(async (event) => {
   try {

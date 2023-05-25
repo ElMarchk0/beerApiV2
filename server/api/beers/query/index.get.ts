@@ -1,10 +1,8 @@
-import Beer from "../../db/models/beer.model";
+import Beer from "../../../db/models/beer.model";
 
 export default defineEventHandler(async (event) => {
   let data;
-
-  const query = event.context.params.query;
-  console.log(`/api/beers/${query}`);
+  const query = await event.context.params.query;
   try {
     if (query) {
       data = await Beer.aggregate([
@@ -21,7 +19,6 @@ export default defineEventHandler(async (event) => {
         },
       ]);
       if (data) {
-        console.log(data);
         return data;
       } else {
         event.node.res.statusCode = 404;
