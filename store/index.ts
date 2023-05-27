@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 import { Beer } from "../interfaces";
-import { beerUrl, beerApiSearchUrl } from "../utils";
 
 export const beerStore = defineStore("beer", {
   state: () => ({
@@ -32,7 +31,13 @@ export const beerStore = defineStore("beer", {
     },
     async fetchOneBeer(beerId: string) {
       try {
-        const data = await $fetch<Beer>(`/api/beers/id/${beerId}`);
+        const data = await $fetch<Beer>(`/api/beers/id/${beerId}`, {
+          method: "GET",
+          params: {
+            id: beerId,
+          },
+        });
+        console.log(typeof beerId);
         this.beer = data;
       } catch (e) {
         console.error(e);

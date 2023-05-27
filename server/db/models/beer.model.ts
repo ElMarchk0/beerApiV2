@@ -4,7 +4,7 @@ import { IBeer } from "../../interfaces/beer.interface";
 const beerSchema = new mongoose.Schema({
   name: "string",
   description: "string",
-  beerId: "number",
+  id: "number",
   brand: "string",
   ABV: "number",
 });
