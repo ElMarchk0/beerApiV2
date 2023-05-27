@@ -1,7 +1,7 @@
 export interface IBeer {
   name: string;
   brand: string;
-  beerId: number;
+  id: number;
   ABV: number;
   description: string;
 }
