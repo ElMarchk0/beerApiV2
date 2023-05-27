@@ -16,12 +16,14 @@ export const beerStore = defineStore("beer", {
     },
   },
   actions: {
-    async fetchBeers(query: string) {
-      const runtimeConfig = useRuntimeConfig();
+    async searchBeers(searchQuery: string) {
       try {
-        const { data } = await axios.get(
-          `${runtimeConfig.beerApiSearchUrl}/${query}`
-        );
+        const data = await $fetch<Beer[]>(`/api/beers/query/${searchQuery}`, {
+          method: "GET",
+          params: {
+            query: searchQuery,
+          },
+        });
         this.beerList = data;
       } catch (e) {
         console.error(e);
@@ -30,8 +32,14 @@ export const beerStore = defineStore("beer", {
     async fetchOneBeer(beerId: string) {
       const runtimeConfig = useRuntimeConfig();
       try {
-        const { data } = await axios.get(`${runtimeConfig.beerUrl}/${beerId}`);
-        this.beer = data[0];
+        const data = await $fetch<Beer>(`/api/beers/id/${beerId}`, {
+          method: "GET",
+          params: {
+            id: beerId,
+          },
+        });
+        console.log(typeof beerId);
+        this.beer = data;
       } catch (e) {
         console.error(e);
       }

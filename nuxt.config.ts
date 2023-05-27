@@ -9,10 +9,9 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    public: {
-      beerApiSearchUrl:
-        process.env.SEARCH_URL || "http://localhost:3001/beers/search",
-      beerUrl: process.env.BEER_URL || "http://localhost:3001/beers/beer",
-    },
+    mongoUrl: process.env.DATABASE_URL,
+  },
+  nitro: {
+    plugins: ["~/server/index.ts"],
   },
 });

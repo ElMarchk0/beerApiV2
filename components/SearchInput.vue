@@ -9,10 +9,10 @@ async function search() {
   try {
     if (route.path !== "/search") {
       await router.push({ path: "/search", query: { q: query.value } });
-      await store.fetchBeers(query.value);
+      await store.searchBeers(query.value);
     } else {
       await router.replace({ path: "/search", query: { q: query.value } });
-      await store.fetchBeers(query.value);
+      await store.searchBeers(query.value);
     }
   } catch (error) {
     console.log(error);
