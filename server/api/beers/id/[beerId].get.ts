@@ -1,8 +1,9 @@
 import Beer from "../../../db/models/beer.model";
 
 export default defineEventHandler(async (event) => {
+  const beerId = event.context.params?.beerId;
   try {
-    const data = Beer.find({});
+    const data = Beer.find({ id: beerId });
     if (data) {
       event.node.res.statusCode = 200;
       return data;

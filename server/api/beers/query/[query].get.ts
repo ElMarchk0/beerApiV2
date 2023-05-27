@@ -2,7 +2,7 @@ import Beer from "../../../db/models/beer.model";
 
 export default defineEventHandler(async (event) => {
   let data;
-  const query = await event.context.params.query;
+  const query = event.context.params?.query;
   try {
     if (query) {
       data = await Beer.aggregate([
