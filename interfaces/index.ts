@@ -6,4 +6,11 @@ interface Beer {
   ABV: number;
 }
 
-export { Beer };
+interface Review {
+  beerId: number;
+  rating: string;
+  content: string;
+  createdAt: Date;
+}
+
+export { Beer, Review };
