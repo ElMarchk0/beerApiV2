@@ -4,15 +4,15 @@ export default defineEventHandler(async (event) => {
   // get the beerId from url params
   const beerId = event.context.params?.beerId;
   // get the body of the review
-  const body = event.context.body;
-
+  const body = await readBody(event);
+  let data;
   // Post the review to the database
   try {
+    // Create a new review with the beerId and the body of the review
     if (beerId) {
-      const data = await Review.create({
+      data = await Review.create({
         beerId: beerId,
-        content: body.content,
-        rating: body.rating,
+        ...body,
       });
       if (data) {
         event.node.res.statusCode = 200;
@@ -21,6 +21,7 @@ export default defineEventHandler(async (event) => {
         event.node.res.statusCode = 404;
         return {
           code: 404,
+          error: "Post not created",
         };
       }
     }
@@ -28,7 +29,7 @@ export default defineEventHandler(async (event) => {
     event.node.res.statusCode = 500;
     return {
       code: 500,
-      error: e,
+      error: "Internal Server Error",
     };
   }
 });
