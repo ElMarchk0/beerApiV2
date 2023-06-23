@@ -6,8 +6,6 @@ export const beerStore = defineStore("beer", {
   state: () => ({
     beerList: [] as Beer[],
     beer: {} as Beer,
-    reviewList: [] as Review[],
-    review: {} as Review,
   }),
   getters: {
     getBeers(state) {
@@ -15,12 +13,6 @@ export const beerStore = defineStore("beer", {
     },
     getBeer(state) {
       return state.beer;
-    },
-    postReview(state) {
-      return state.review;
-    },
-    getReviews(state) {
-      return state.reviewList;
     },
   },
   actions: {
@@ -50,10 +42,27 @@ export const beerStore = defineStore("beer", {
         console.error(e);
       }
     },
+  },
+});
+
+export const reviewStore = defineStore("review", {
+  state: () => ({
+    reviewList: [] as Review[],
+    review: {} as Review,
+  }),
+  getters: {
+    getReviews(state) {
+      return state.reviewList;
+    },
+    postReview(state) {
+      return state.review;
+    },
+  },
+  actions: {
     async postReview(beerId: string, review: Review) {
       try {
         const date = new Date();
-        const data = await $fetch<Review>(`/api/reviews`, {
+        const data = await $fetch<Review>(`/api/reviews/get/${beerId}`, {
           method: "POST",
           body: { ...review, beerId: beerId, createdAt: date },
         });
@@ -64,7 +73,7 @@ export const beerStore = defineStore("beer", {
     },
     async fetchReviews(beerId: string) {
       try {
-        const data = await $fetch<Review[]>(`/api/reviews/${beerId}`, {
+        const data = await $fetch<Review[]>(`/api/reviews/post/${beerId}`, {
           method: "GET",
           params: {
             beerId: beerId,

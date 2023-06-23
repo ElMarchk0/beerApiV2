@@ -31,3 +31,4 @@ async function search() {
     </button>
   </form>
 </template>
+../store/beer
