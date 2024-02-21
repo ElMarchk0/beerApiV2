@@ -21,7 +21,12 @@ async function search() {
 </script>
 <template>
   <form @submit.prevent="search()">
-    <input type="text" placeholder="Search" v-model="query" class="br" />
+    <input
+      type="text"
+      placeholder="Search"
+      v-model="query"
+      class="rounded focus:outline-none focus:shadow-outliner h-full"
+    />
     <button
       class="bg-blue-500 m-3 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
       type="button"
